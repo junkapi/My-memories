@@ -62,7 +62,7 @@
     <div id="f">
       <div class="container">
         <div class="row">
-          <p>I <i class="fa fa-heart"></i> Cubu.</p>
+          <p>I <i class="fa fa-heart"></i> Cebu.</p>
         </div>
       </div>
     </div>

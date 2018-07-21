@@ -49,7 +49,7 @@
     if (empty($errors)) {
             //$errorsが空だった場合はバリデーション成功
             //成功時の処理を記述する
-            $date_str = date('YmdHis');
+            $date_str = date('Ymd');
             $submit_file_name = $date_str.$file_name;
             move_uploaded_file($_FILES['input_img_name']['tmp_name'], '../post_img/'.$submit_file_name);
 
@@ -163,7 +163,7 @@
     <div id="f">
       <div class="container">
         <div class="row">
-          <p>I <i class="fa fa-heart"></i> Cubu.</p>
+          <p>I <i class="fa fa-heart"></i> Cebu.</p>
         </div>
       </div>
     </div>
