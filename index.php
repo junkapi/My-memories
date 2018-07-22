@@ -1,6 +1,14 @@
 <?php
 
 
+  // session_start();
+
+  // require('..dbconnect.php');
+
+
+
+
+
   $dsn = 'mysql:dbname=Mymemories;host=localhost';
   $user = 'root';
   $password = '';
@@ -9,11 +17,18 @@
   $dbh->query('SET NAMES utf8');
 
 
+  $title = $_SESSION['register']['title'];
+  $date = $_SESSION['register']['date'];
+  $detail = $_SESSION['register']['detail'];
+  $img_name = $_SESSION['register']['img_name'];
+
+
  
 
     $sql = 'SELECT * FROM `feeds` ORDER BY `date` ASC';
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
+
 
     $pics = array();
     while (1) {
@@ -26,7 +41,12 @@
          $pics[] = $rec;
     }
 
+
     $dbh = null;
+
+
+
+
 
 
 ?>
@@ -104,7 +124,7 @@
           <h3>Album</h3>
           <?php  foreach ($pics as $pic): ?>
           <div class="col-lg-4">
-            <a href="detail.html" class="trim"><img class="picture"    alt=""><span><?php echo $pic['date'] ?></span></a>
+            <a href="detail.php" class="trim"><img class="picture"    src="../post_img/<?php echo htmlspecialchars($img_name); ?>alt=""></a>
           </div>
           <?php endforeach; ?>
         </div>

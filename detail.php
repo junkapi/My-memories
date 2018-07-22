@@ -1,6 +1,37 @@
 <?php
 
 
+    // session_start();
+
+    // require_once('../dbconnect.php');
+
+
+  // $dsn = 'mysql:dbname=Mymemories;host=localhost';
+  // $user = 'root';
+  // $password = '';
+  // $dbh = new PDO($dsn, $user, $password);
+  // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  // $dbh->query('SET NAMES utf8');
+
+
+  //   $sql = 'SELECT * FROM `feeds`';
+  //   $stmt = $dbh->prepare($sql);
+  //   $stmt->execute();
+
+  //   $pics = array();
+  //   while (1) {
+  //   // データを１件ずつ取得
+  //       $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+  //       if ($rec == false) {
+  //          break;
+  //       }
+
+  //        $pics[] = $rec;
+  //   }
+
+
+  // $dbh = null;
+
 
 
 
@@ -69,9 +100,9 @@
           </div>
           <div class="col-xs-8">
             <div class="details">
-              <h3 class="post-title">タイトル（２４文字まで）</h3>
-              <h4 class="post-date">2018/12/09</h4><br>
-              <h3 class="post-detail">ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。ここに内容を書きます。（１４０文字まで）</h3>
+              <h3 class="post-title"><span><?php echo $title ?></span></h3>
+              <h4 class="post-date"><span><?php echo $date ?></span></h4><br>
+              <h3 class="post-detail"><span><?php echo $detail ?></span></h3>
             </div>
           </div>
         </div>
