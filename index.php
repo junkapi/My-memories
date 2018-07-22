@@ -3,27 +3,21 @@
 
   // session_start();
 
-  // require('..dbconnect.php');
+  require('dbconnect.php');
 
 
 
 
 
-  $dsn = 'mysql:dbname=Mymemories;host=localhost';
-  $user = 'root';
-  $password = '';
-  $dbh = new PDO($dsn, $user, $password);
-  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $dbh->query('SET NAMES utf8');
+  // $dsn = 'mysql:dbname=Mymemories;host=localhost';
+  // $user = 'root';
+  // $password = '';
+  // $dbh = new PDO($dsn, $user, $password);
+  // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  // $dbh->query('SET NAMES utf8');
 
 
-  $title = $_SESSION['register']['title'];
-  $date = $_SESSION['register']['date'];
-  $detail = $_SESSION['register']['detail'];
-  $img_name = $_SESSION['register']['img_name'];
 
-
- 
 
     $sql = 'SELECT * FROM `feeds` ORDER BY `date` ASC';
     $stmt = $dbh->prepare($sql);
@@ -42,7 +36,7 @@
     }
 
 
-    $dbh = null;
+    // $dbh = null;
 
 
 
@@ -124,7 +118,7 @@
           <h3>Album</h3>
           <?php  foreach ($pics as $pic): ?>
           <div class="col-lg-4">
-            <a href="detail.php" class="trim"><img class="picture"    src="../post_img/<?php echo htmlspecialchars($img_name); ?>alt=""></a>
+            <a href="detail.php?id=<?php echo $pic['id']; ?>" class="trim"><img class="picture"    src="post_img/<?php echo $pic['img_name']; ?>" alt=""></a>
           </div>
           <?php endforeach; ?>
         </div>

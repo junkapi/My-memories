@@ -27,6 +27,21 @@
     $detail = htmlspecialchars($_POST['detail']);
 
 
+    $count = strlen($title);
+
+        if ($title == '') {
+            $errors['title'] = 'blank';
+        } elseif ($count > 24) {
+            $errors['title'] = 'length';
+        }
+
+        if ($detail == '') {
+            $errors['detail'] = 'blank';
+        } elseif ($count > 140) {
+            $errors['detail'] = 'length';
+        }
+
+
 
     $file_name = '';
     if (!isset($_GET['action'])) {
@@ -126,7 +141,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="../index.html">Main page</a></li>
+            <li class="active"><a href="index.php">Main page</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -140,18 +155,24 @@
           <div class="form-group">
             <label for="task">タイトル</label>
             <input name="title" class="form-control" value="<?php echo htmlspecialchars($title); ?>">
+            <?php if (isset($errors['title']) && $errors['title'] == 'blank'): ?>
+                <p class="text-danger">タイトルを24文字以内で入力してください</p>
+            <?php endif; ?>
           </div>
           <div class="form-group">
             <label for="date">日程</label>
-            <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($date); ?>>
+            <input type="date" name="date" class="form-control" value="<?php echo $date; ?>">
           </div>
           <div class="form-group">
             <label for="detail">詳細</label>
-            <textarea name="detail" class="form-control" rows="3" value="<?php echo htmlspecialchars($detail); ?>"></textarea><br>
+            <textarea name="detail" class="form-control" rows="3"><?php echo htmlspecialchars($detail); ?></textarea><br>
+            <?php if (isset($errors['detail']) && $errors['detail'] == 'blank'): ?>
+              <p class="text-danger">詳細を140文字以内で入力してください</p>
+            <?php endif; ?>
           </div>
           <div class="form-group">
             <label for="img_name">写真</label>
-            <input type="file" name="input_img_name" id="img_name">
+            <input type="file" name="input_img_name" id="img_name" value="<?php echo $file_name; ?>">
             <?php if(isset($errors['img_name']) && $errors['img_name'] =='blank') { ?>
               <p class="text-danger">画像を選択してください</p>
             <?php } ?>

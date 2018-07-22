@@ -81,7 +81,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Post content</a></li>
+            <li class="active"><a href="index.php">Main menu</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -90,13 +90,14 @@
     <div class="container">
       <div class="main-contents">
         <div class="col-lg-10 col-lg-offset-1 centered">
+           <h2 class="text-center content_header">投稿しますか？</h2>
           <div class="col-xs-4">
             <a href="" class="trim"><img class="picture" src="../post_img/<?php echo htmlspecialchars($img_name); ?>" alt=""></a>
           </div>
           <div class="col-xs-8">
             <div class="details">
               <h3 class="post-title"><?php echo htmlspecialchars($title); ?></h3>
-              <h4 class="post-date"><?php echo htmlspecialchars($date); ?></h4><br>
+              <h4 class="post-date"><?php echo date('Ymd', strtotime($date)); ?></h4><br>
               <h3 class="post-detail"><?php echo htmlspecialchars($detail); ?></h3>
             </div><br><br><br><br>
             <form method="POST" action="">

@@ -1,42 +1,40 @@
 <?php
 
 
-    // session_start();
+  //   session_start();
 
-    // require_once('../dbconnect.php');
-
-
-  // $dsn = 'mysql:dbname=Mymemories;host=localhost';
-  // $user = 'root';
-  // $password = '';
-  // $dbh = new PDO($dsn, $user, $password);
-  // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  // $dbh->query('SET NAMES utf8');
+  //   require_once('../dbconnect.php');
 
 
-  //   $sql = 'SELECT * FROM `feeds`';
-  //   $stmt = $dbh->prepare($sql);
-  //   $stmt->execute();
-
-  //   $pics = array();
-  //   while (1) {
-  //   // データを１件ずつ取得
-  //       $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-  //       if ($rec == false) {
-  //          break;
-  //       }
-
-  //        $pics[] = $rec;
-  //   }
+  $dsn = 'mysql:dbname=Mymemories;host=localhost';
+  $user = 'root';
+  $password = '';
+  $dbh = new PDO($dsn, $user, $password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $dbh->query('SET NAMES utf8');
 
 
-  // $dbh = null;
+    $sql = 'SELECT * FROM `feeds` WHERE `id` = ?';
+    $data = array($_GET['id']);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
 
 
+    // while (1) {
+    // // データを１件ずつ取得
+        $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+        // if ($rec == false) {
+        //    break;
+        // }
+
+    // }
 
 
+  $dbh = null;
 
-?>
+
+ ?>
+
 
 
 
@@ -54,14 +52,14 @@
     <title>My Memories</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/main.css" rel="stylesheet">
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../assets/js/chart.js"></script>
+    <script src="assets/js/chart.js"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -96,13 +94,13 @@
       <div class="main-contents">
         <div class="col-lg-10 col-lg-offset-1 centered">
           <div class="col-xs-4">
-            <a href="" class="trim"><img class="picture" src="../assets/img/background_img2.jpg" alt=""></a>
+            <a href="" class="trim"><img class="picture" src="post_img/<?php echo $rec['img_name']; ?>" alt=""></a>
           </div>
           <div class="col-xs-8">
             <div class="details">
-              <h3 class="post-title"><span><?php echo $title ?></span></h3>
-              <h4 class="post-date"><span><?php echo $date ?></span></h4><br>
-              <h3 class="post-detail"><span><?php echo $detail ?></span></h3>
+              <h3 class="post-title"><span><?php echo $rec['title'] ?></span></h3>
+              <h4 class="post-date"><span><?php echo date('Ymd', strtotime($rec['date'])) ?></span></h4><br>
+              <h3 class="post-detail"><span><?php echo $rec['detail'] ?></span></h3>
             </div>
           </div>
         </div>
@@ -120,6 +118,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
   </body>
 </html>
