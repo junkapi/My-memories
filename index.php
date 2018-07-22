@@ -15,7 +15,7 @@
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
-    $comments = array();
+    $pics = array();
     while (1) {
     // データを１件ずつ取得
         $rec = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -23,7 +23,7 @@
            break;
         }
 
-         $comments[] = $rec;
+         $pics[] = $rec;
     }
 
     $dbh = null;
@@ -102,27 +102,11 @@
       <div class="main-contents">
         <div class="row centered mt grid">
           <h3>Album</h3>
+          <?php  foreach ($pics as $pic): ?>
           <div class="col-lg-4">
-            <a href="detail.html" class="trim"><img class="picture" src="assets/img/background_img2.jpg" alt=""></a>
+            <a href="detail.html" class="trim"><img class="picture"    alt=""><span><?php echo $pic['date'] ?></span></a>
           </div>
-          <div class="col-lg-4">
-            <a href="#"><img class="picture" src="assets/img/02.jpg" alt=""></a>
-          </div>
-          <div class="col-lg-4">
-            <a href="#"><img class="picture" src="assets/img/03.jpg" alt=""></a>
-          </div>
-        </div>
-        
-        <div class="row centered mt grid">
-          <div class="col-lg-4">
-            <a href="#"><img class="picture" src="assets/img/04.jpg" alt=""></a>
-          </div>
-          <div class="col-lg-4">
-            <a href="#"><img class="picture" src="assets/img/05.jpg" alt=""></a>
-          </div>
-          <div class="col-lg-4">
-            <a href="#"><img class="picture" src="assets/img/06.jpg" alt=""></a>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@
         <h2 class="text-center content_header">投稿完了</h2>
         <div class="text-center">
           <p>投稿完了しました。</p>
-          <a href="index.php" class="btn btn-info">ホームへ戻る</a>
+          <a href="../index.php" class="btn btn-info">ホームへ戻る</a>
         </div>
       </div>
     </div>

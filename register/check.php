@@ -98,7 +98,7 @@
               <h3 class="post-title"><?php echo htmlspecialchars($title); ?></h3>
               <h4 class="post-date"><?php echo htmlspecialchars($date); ?></h4><br>
               <h3 class="post-detail"><?php echo htmlspecialchars($detail); ?></h3>
-            </div>
+            </div><br><br><br><br>
             <form method="POST" action="">
                             <!-- ④ -->
             <a href="post.php?action=rewrite" class="btn btn-default">&laquo;&nbsp;戻る</a> | 

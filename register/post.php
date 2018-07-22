@@ -5,8 +5,9 @@
   date_default_timezone_set("Asia/Manila");
 
   $title = '';
+  $date = '';
   $detail = '';
-  $errors = [];
+  $errors = array();
 
  
   if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
@@ -22,7 +23,7 @@
   if (!empty($_POST)) {
 
     $title = htmlspecialchars($_POST['title']);
-    $date = htmlspecialchars($_POST['date']);
+    $date = ($_POST['date']);
     $detail = htmlspecialchars($_POST['detail']);
 
 
@@ -49,7 +50,7 @@
     if (empty($errors)) {
             //$errorsが空だった場合はバリデーション成功
             //成功時の処理を記述する
-            $date_str = date('Ymd');
+            $date_str = date('YmdHis');
             $submit_file_name = $date_str.$file_name;
             move_uploaded_file($_FILES['input_img_name']['tmp_name'], '../post_img/'.$submit_file_name);
 
@@ -138,15 +139,15 @@
         <form method="POST" action="" enctype="multipart/form-data">
           <div class="form-group">
             <label for="task">タイトル</label>
-            <input name="title" class="form-control">
+            <input name="title" class="form-control" value="<?php echo htmlspecialchars($title); ?>">
           </div>
           <div class="form-group">
             <label for="date">日程</label>
-            <input type="date" name="date" class="form-control">
+            <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($date); ?>>
           </div>
           <div class="form-group">
             <label for="detail">詳細</label>
-            <textarea name="detail" class="form-control" rows="3"></textarea><br>
+            <textarea name="detail" class="form-control" rows="3" value="<?php echo htmlspecialchars($detail); ?>"></textarea><br>
           </div>
           <div class="form-group">
             <label for="img_name">写真</label>
