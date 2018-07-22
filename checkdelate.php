@@ -1,12 +1,9 @@
 <?php
 
 
-  // session_start();
+  //   session_start();
 
-  require('dbconnect.php');
-
-
-
+    require_once('dbconnect.php');
 
 
   // $dsn = 'mysql:dbname=Mymemories;host=localhost';
@@ -17,33 +14,27 @@
   // $dbh->query('SET NAMES utf8');
 
 
-
-
-    $sql = 'SELECT * FROM `feeds` ORDER BY `date` ASC';
+    $sql = 'SELECT * FROM `feeds` WHERE `id` = ?';
+    $data = array($_GET['id']);
     $stmt = $dbh->prepare($sql);
-    $stmt->execute();
+    $stmt->execute($data);
 
 
-    $pics = array();
-    while (1) {
-    // データを１件ずつ取得
+    // while (1) {
+    // // データを１件ずつ取得
         $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($rec == false) {
-           break;
-        }
+        // if ($rec == false) {
+        //    break;
+        // }
 
-         $pics[] = $rec;
-    }
-
-
-    // $dbh = null;
+    // }
 
 
+  $dbh = null;
 
 
+ ?>
 
-
-?>
 
 
 
@@ -93,34 +84,27 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="register/post.php" style="font-family: 'Chalkduster">Post photos</a></li>
+            <li class="active"><a href="index.php" style="font-family: 'Chalkduster">Main page</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-
-    <div id="hello">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 centered">
-              <h1 style="font-family: 'Chalkduster">My Memories</h1>
-              <h2 style="font-family: 'Chalkduster">~ In Cebu ~</h2>
-            </div><!-- /col-lg-8 -->
-          </div><!-- /row -->
-        </div> <!-- /container -->
-    </div><!-- /hello -->
-    
-    
     <div class="container">
       <div class="main-contents">
-        <div class="row centered mt grid">
-          <h3 style="font-family: 'Chalkduster" >Album</h3>
-          <?php  foreach ($pics as $pic): ?>
-          <div class="col-lg-4">
-            <a href="detail.php?id=<?php echo $pic['id']; ?>" class="trim"><img class="picture"    src="post_img/<?php echo $pic['img_name']; ?>" alt=""></a>
+        <div class="col-lg-10 col-lg-offset-1 centered">
+          <h2 class="text-center content_header" style="font-family: 'Chalkduster">Delate OK？</h2>
+          <div class="col-xs-4">
+            <a href="" class="trim"><img class="picture" src="post_img/<?php echo $rec['img_name']; ?>" alt=""></a>
           </div>
-          <?php endforeach; ?>
+          <div class="col-xs-8">
+            <div class="details">
+              <h3 class="post-title" ><span><?php echo $rec['title'] ?></span></h3>
+              <h4 class="post-date"><span><?php echo date('Ymd', strtotime($rec['date'])) ?></span></h4><br>
+              <p class="post-detail"><span><?php echo $rec['detail'] ?></span></p><br><br><br><br>
+              <a href="delate.php?id=<?php echo $comment["id"]; ?>" class="btn btn-danger" style="color: white; font-family:'Chalkduster'">delate</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -128,10 +112,9 @@
     <div id="f">
       <div class="container">
         <div class="row">
-          <p style="font-family: 'Chalkduster'">I <i class="fa fa-heart"></i> Cebu.</p>
+          <p style="font-family: 'Skia-Regular_Black',sans-serif;">I <i class="fa fa-heart"></i> Cebu.</p>
         </div>
       </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript

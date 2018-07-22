@@ -1,89 +1,20 @@
 <?php
 
-  session_start();
-
-  date_default_timezone_set("Asia/Manila");
-
-  $title = '';
-  $date = '';
-  $detail = '';
-  $errors = array();
-
- 
-  if (isset($_GET['action']) && $_GET['action'] == 'rewrite') {
-        $_POST['title'] = $_SESSION['register']['title'];
-        $_POST['date'] = $_SESSION['register']['date'];
-        $_POST['detail'] = $_SESSION['register']['detail'];
-
-        $errors['rewrite'] = true;
-    }
+  require('dbconnect.php');
 
 
 
-  if (!empty($_POST)) {
-
-    $title = htmlspecialchars($_POST['title']);
-    $date = ($_POST['date']);
-    $detail = htmlspecialchars($_POST['detail']);
 
 
-    $count = strlen($title);
+  $sql = 'SELECT * FROM `feeds` WHERE `id` = ?';
 
-        if ($title == '') {
-            $errors['title'] = 'blank';
-        } elseif ($count > 24) {
-            $errors['title'] = 'length';
-        }
+  $data = array($_GET['id']);
 
-        if ($detail == '') {
-            $errors['detail'] = 'blank';
-        } elseif ($count > 140) {
-            $errors['detail'] = 'length';
-        }
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute($data);
 
 
-
-    $file_name = '';
-    if (!isset($_GET['action'])) {
-        $file_name = $_FILES['input_img_name']['name'];
-        }
-
-
-
-    if (!empty($file_name)) {
-        $file_type = substr($file_name, -3);  //画像名の後ろから３文字を取得
-        $file_type = strtolower($file_type);  //大文字が含まれていた場合全て小文字化
-        if ($file_type != 'jpg' && $file_type != 'png' && $file_type != 'gif') {
-            $errors['img_name'] = 'type';
-        }
-        } else {
-            $errors['img_name'] = 'blank';
-        }
-
-
-
-    if (empty($errors)) {
-            //$errorsが空だった場合はバリデーション成功
-            //成功時の処理を記述する
-            $date_str = date('YmdHis');
-            $submit_file_name = $date_str.$file_name;
-            move_uploaded_file($_FILES['input_img_name']['tmp_name'], '../post_img/'.$submit_file_name);
-
-            $_SESSION['register']['title'] = $_POST['title'];
-            $_SESSION['register']['date'] = $_POST['date'];
-            $_SESSION['register']['detail'] = $_POST['detail'];
-            $_SESSION['register']['img_name'] = $submit_file_name;
-
-
-
-    header('Location: check.php');
-    exit();
-
-
-  }
-
-  }
-
+  $rec = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 
@@ -109,14 +40,14 @@
     <title>My Memories</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/main.css" rel="stylesheet">
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../assets/js/chart.js"></script>
+    <script src="assets/js/chart.js"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -202,6 +133,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
   </body>
 </html>

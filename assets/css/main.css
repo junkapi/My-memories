@@ -14,10 +14,10 @@
 /* OVERALL ASPECT */
 
 body {
-  background-color: #23c5cc1c;
-    font-family: "Lato";
+  background-color: #E1F3DA;
+    font-family: "Chalkduster";
     font-weight: 300;
-    font-size: 16px;
+    font-size: 20px;
     color: #555;
 
     -webkit-font-smoothing: antialiased;
@@ -28,9 +28,9 @@ body {
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
+    font-family: "Chalkduster";
     font-weight: 300;
-    color: #333;
+    color: #214E00;
 }
 
 
@@ -92,11 +92,11 @@ a:after {
 	font-size: 14px;
 	padding-top: 15px;
 	padding-bottom: 15px;
-	background-color: #23C5CC;
+	background-color: #AFBD4D;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color: #23C5CC;
+	color: #AFBD4D;
 	background-color: #fff;
 }
 
@@ -162,7 +162,7 @@ margin-top: 80px;
 	width: 100%;
 	padding-top: 250px;
 	padding-bottom: 250px;
-  background-image: url('../img/background_img.jpg');
+  background-image: url('../img/cebu12.jpg');
   background-size:cover;
 }
 
@@ -237,7 +237,7 @@ margin-top: 80px;
 /* Footer */
 #f {
 	padding-top: 20px;
-	background-color: #a9b4b5;
+	background-color: #214E00;
 }
 
 #f p {

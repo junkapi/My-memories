@@ -42,7 +42,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.php">Main page</a></li>
+            <li class="active"><a href="index.php" style="font-family: 'Chalkduster">Main page</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -51,10 +51,10 @@
     
     <div class="container">
       <div class="col-xs-8 col-xs-offset-2 thumbnail">
-        <h2 class="text-center content_header">投稿完了</h2>
+        <h2 class="text-center content_header" style="font-family: 'Chalkduster'">Completed!</h2>
         <div class="text-center">
-          <p>投稿完了しました。</p>
-          <a href="../index.php" class="btn btn-info">ホームへ戻る</a>
+          <p style="font-family: 'Chalkduster'">Thank you post your memory.</p>
+          <a href="../index.php" class="btn btn-info" style="font-family: 'Chalkduster'">Home</a>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
     <div id="f">
       <div class="container">
         <div class="row">
-          <p>I <i class="fa fa-heart"></i> Cebu.</p>
+          <p style="font-family: 'Chalkduster'">I <i class="fa fa-heart"></i> Cebu.</p>
         </div>
       </div>
     </div>

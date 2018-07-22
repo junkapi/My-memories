@@ -1,51 +1,21 @@
 <?php
 
-
-  // session_start();
+// 削除する処理
 
   require('dbconnect.php');
 
+  $id = $_GET['id'];
 
 
+  $sql = 'DELETE FROM `feeds` WHERE `id` = ?';
 
+  $data[] = $id;
 
-  // $dsn = 'mysql:dbname=Mymemories;host=localhost';
-  // $user = 'root';
-  // $password = '';
-  // $dbh = new PDO($dsn, $user, $password);
-  // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  // $dbh->query('SET NAMES utf8');
-
-
-
-
-    $sql = 'SELECT * FROM `feeds` ORDER BY `date` ASC';
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
-
-
-    $pics = array();
-    while (1) {
-    // データを１件ずつ取得
-        $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($rec == false) {
-           break;
-        }
-
-         $pics[] = $rec;
-    }
-
-
-    // $dbh = null;
-
-
-
-
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute($data);
 
 
 ?>
-
-
 
 
 
@@ -61,14 +31,14 @@
     <title>My Memories</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/chart.js"></script>
+    <script src="../assets/js/chart.js"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -93,34 +63,19 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="register/post.php" style="font-family: 'Chalkduster">Post photos</a></li>
+            <li class="active"><a href="index.php" style="font-family: 'Chalkduster">Main page</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
-
-    <div id="hello">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 centered">
-              <h1 style="font-family: 'Chalkduster">My Memories</h1>
-              <h2 style="font-family: 'Chalkduster">~ In Cebu ~</h2>
-            </div><!-- /col-lg-8 -->
-          </div><!-- /row -->
-        </div> <!-- /container -->
-    </div><!-- /hello -->
-    
+  
     
     <div class="container">
-      <div class="main-contents">
-        <div class="row centered mt grid">
-          <h3 style="font-family: 'Chalkduster" >Album</h3>
-          <?php  foreach ($pics as $pic): ?>
-          <div class="col-lg-4">
-            <a href="detail.php?id=<?php echo $pic['id']; ?>" class="trim"><img class="picture"    src="post_img/<?php echo $pic['img_name']; ?>" alt=""></a>
-          </div>
-          <?php endforeach; ?>
+      <div class="col-xs-8 col-xs-offset-2 thumbnail">
+        <h2 class="text-center content_header" style="font-family: 'Chalkduster'">Completed!</h2>
+        <div class="text-center">
+          <p style="font-family: 'Chalkduster'">Delate completed.</p>
+          <a href="../index.php" class="btn btn-info" style="font-family: 'Chalkduster'">Home</a>
         </div>
       </div>
     </div>
@@ -131,12 +86,11 @@
           <p style="font-family: 'Chalkduster'">I <i class="fa fa-heart"></i> Cebu.</p>
         </div>
       </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
   </body>
 </html>

@@ -84,7 +84,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Main page</a></li>
+            <li class="active"><a href="index.php" style="font-family: 'Chalkduster">Main page</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -98,9 +98,11 @@
           </div>
           <div class="col-xs-8">
             <div class="details">
-              <h3 class="post-title"><span><?php echo $rec['title'] ?></span></h3>
+              <h3 class="post-title" ><span><?php echo $rec['title'] ?></span></h3>
               <h4 class="post-date"><span><?php echo date('Ymd', strtotime($rec['date'])) ?></span></h4><br>
-              <h3 class="post-detail"><span><?php echo $rec['detail'] ?></span></h3>
+              <p class="post-detail"><span><?php echo $rec['detail'] ?></span></p><br><br><br><br>
+              <a href="edit.php?id=<?php echo $comment["id"]; ?>" class="btn btn-success" style="color: white; font-family:'Chalkduster'">edit</a>
+              <a href="checkdelate.php?id=<?php echo $comment["id"]; ?>" class="btn btn-danger" style="color: white; font-family:'Chalkduster'">delate</a>
             </div>
           </div>
         </div>
@@ -110,7 +112,7 @@
     <div id="f">
       <div class="container">
         <div class="row">
-          <p>I <i class="fa fa-heart"></i> Cebu.</p>
+          <p style="font-family: 'Chalkduster'">I <i class="fa fa-heart"></i> Cebu.</p>
         </div>
       </div>
     </div>
