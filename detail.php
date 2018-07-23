@@ -101,8 +101,8 @@
               <h3 class="post-title" ><span><?php echo $rec['title'] ?></span></h3>
               <h4 class="post-date"><span><?php echo date('Ymd', strtotime($rec['date'])) ?></span></h4><br>
               <p class="post-detail"><span><?php echo $rec['detail'] ?></span></p><br><br><br><br>
-              <a href="edit.php?id=<?php echo $comment["id"]; ?>" class="btn btn-success" style="color: white; font-family:'Chalkduster'">edit</a>
-              <a href="checkdelate.php?id=<?php echo $comment["id"]; ?>" class="btn btn-danger" style="color: white; font-family:'Chalkduster'">delate</a>
+              <a href="edit.php?id=<?php echo $rec["id"]; ?>" class="btn btn-success" style="color: white; font-family:'Chalkduster'">edit</a>
+              <a href="checkdelate.php?id=<?php echo $rec["id"]; ?>" class="btn btn-danger" style="color: white; font-family:'Chalkduster'">delate</a>
             </div>
           </div>
         </div>

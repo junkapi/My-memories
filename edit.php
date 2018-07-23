@@ -85,7 +85,7 @@
         <form method="POST" action="" enctype="multipart/form-data">
           <div class="form-group">
             <label for="task" style="font-family: 'Chalkduster">Title</label>
-            <input name="title" class="form-control" value="<?php echo htmlspecialchars($title); ?>">
+            <input name="title" class="form-control" value="<?php echo htmlspecialchars($rec['title']); ?>">
             <?php if (isset($errors['title']) && $errors['title'] == 'blank'): ?>
                 <p class="text-danger" style="font-family: 'Chalkduster">Please write "title".</p>
             <?php endif; ?>
@@ -95,11 +95,11 @@
           </div>
           <div class="form-group">
             <label for="date" style="font-family: 'Chalkduster">Date</label>
-            <input type="date" name="date" class="form-control" value="<?php echo $date; ?>">
+            <input type="date" name="date" class="form-control" value="<?php echo $rec['date']; ?>">
           </div>
           <div class="form-group">
             <label for="detail" style="font-family: 'Chalkduster">Comment</label>
-            <textarea name="detail" class="form-control" rows="3"><?php echo htmlspecialchars($detail); ?></textarea><br>
+            <textarea name="detail" class="form-control" rows="3"><?php echo htmlspecialchars($rec['detail']); ?></textarea><br>
             <?php if (isset($errors['detail']) && $errors['detail'] == 'blank'): ?>
               <p class="text-danger" style="font-family: 'Chalkduster">Please write "Comment".</p>
             <?php endif; ?>
@@ -109,7 +109,7 @@
           </div>
           <div class="form-group">
             <label for="img_name" style="font-family: 'Chalkduster'">Photo</label>
-            <input type="file" name="input_img_name" id="img_name" value="<?php echo $file_name; ?>">
+            <input type="file" name="input_img_name" id="img_name" value="<?php echo $rec['file_name']; ?>">
             <?php if(isset($errors['img_name']) && $errors['img_name'] =='blank') { ?>
               <p class="text-danger" style="font-family: 'Chalkduster'">Please choose a photo.</p>
             <?php } ?>

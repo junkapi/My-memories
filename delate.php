@@ -31,14 +31,14 @@
     <title>My Memories</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/main.css" rel="stylesheet">
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../assets/js/chart.js"></script>
+    <script src="assets/js/chart.js"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -75,7 +75,7 @@
         <h2 class="text-center content_header" style="font-family: 'Chalkduster'">Completed!</h2>
         <div class="text-center">
           <p style="font-family: 'Chalkduster'">Delate completed.</p>
-          <a href="../index.php" class="btn btn-info" style="font-family: 'Chalkduster'">Home</a>
+          <a href="index.php" class="btn btn-info" style="font-family: 'Chalkduster'">Home</a>
         </div>
       </div>
     </div>
@@ -91,6 +91,6 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
   </body>
 </html>

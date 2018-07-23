@@ -102,7 +102,7 @@
               <h3 class="post-title" ><span><?php echo $rec['title'] ?></span></h3>
               <h4 class="post-date"><span><?php echo date('Ymd', strtotime($rec['date'])) ?></span></h4><br>
               <p class="post-detail"><span><?php echo $rec['detail'] ?></span></p><br><br><br><br>
-              <a href="delate.php?id=<?php echo $comment["id"]; ?>" class="btn btn-danger" style="color: white; font-family:'Chalkduster'">delate</a>
+              <a href="delate.php?id=<?php echo $rec["id"]; ?>" class="btn btn-danger" style="color: white; font-family:'Chalkduster'">delate</a>
             </div>
           </div>
         </div>
