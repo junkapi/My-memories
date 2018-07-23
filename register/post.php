@@ -27,7 +27,7 @@
     $detail = htmlspecialchars($_POST['detail']);
 
 
-    $count = strlen($title);
+    $count = mb_strlen($title . $detail);
 
         if ($title == '') {
             $errors['title'] = 'blank';
@@ -67,6 +67,7 @@
             //成功時の処理を記述する
             $date_str = date('YmdHis');
             $submit_file_name = $date_str.$file_name;
+            // move_uploaded_file（テンポラリパス、保存したい場所、ファイル名）
             move_uploaded_file($_FILES['input_img_name']['tmp_name'], '../post_img/'.$submit_file_name);
 
             $_SESSION['register']['title'] = $_POST['title'];
@@ -151,6 +152,7 @@
     <div class="container">
       <div class="col-xs-8 col-xs-offset-2 thumbnail">
         <h2 class="text-center content_header" style="font-family: 'Chalkduster">Post photos</h2>
+        <!-- $_FILESを使うにはformでenctype~を入れないといけない -->
         <form method="POST" action="" enctype="multipart/form-data">
           <div class="form-group">
             <label for="task" style="font-family: 'Chalkduster">Title</label>
