@@ -56,9 +56,9 @@
         if ($file_type != 'jpg' && $file_type != 'png' && $file_type != 'gif') {
             $errors['img_name'] = 'type';
         }
-        } else {
-            $errors['img_name'] = 'blank';
-        }
+    } else {
+       $errors['img_name'] = 'blank';
+    }
 
 
 
@@ -153,7 +153,7 @@
       <div class="col-xs-8 col-xs-offset-2 thumbnail">
         <h2 class="text-center content_header" style="font-family: 'Chalkduster">Post photos</h2>
         <!-- $_FILESを使うにはformでenctype~を入れないといけない -->
-        <form method="POST" action="" enctype="multipart/form-data">
+        <form method="POST" action="post.php" enctype="multipart/form-data">
           <div class="form-group">
             <label for="task" style="font-family: 'Chalkduster">Title</label>
             <input name="title" class="form-control" value="<?php echo htmlspecialchars($title); ?>">
